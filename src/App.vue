@@ -5,14 +5,7 @@
         <bill-input />
 
         <p>Select tip %</p>
-        <ul>
-          <li><button>5%</button></li>
-          <li><button>10%</button></li>
-          <li><button>15%</button></li>
-          <li><button>25%</button></li>
-          <li><button>50%</button></li>
-          <li><input></li>
-        </ul>
+        <tip-percentage />
 
         <number-of-people-input />
       </div>
@@ -36,12 +29,14 @@
 import { state } from '@/store.js';
 import BillInput from '@/components/BillInput.vue';
 import NumberOfPeopleInput from '@/components/NumberOfPeopleInput.vue';
+import TipPercentage from '@/components/TipPercentage.vue';
 
 export default {
   name: 'App',
   components: {
     BillInput,
     NumberOfPeopleInput,
+    TipPercentage,
   },
   computed: {
     tipState() {

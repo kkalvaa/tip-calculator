@@ -13,7 +13,7 @@ export default {
     bill: {
       get() {
         return state.bill;
-        },
+      },
       set(value) {
         actions.updateBill(value);
       }
