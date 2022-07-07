@@ -2,8 +2,7 @@
   <div id="app">
     <section>
       <div>
-        <p>Bill</p>
-        <input v-model.number="bill">
+        <bill-input />
 
         <p>Select tip %</p>
         <ul>
@@ -15,8 +14,7 @@
           <li><input></li>
         </ul>
 
-        <p>Number of people</p>
-        <input v-model.number="numberOfPeople">
+        <number-of-people-input />
       </div>
       <div class="div2">
         <div>
@@ -35,33 +33,22 @@
 </template>
 
 <script>
-import { state, actions } from '@/store.js';
+import { state } from '@/store.js';
+import BillInput from '@/components/BillInput.vue';
+import NumberOfPeopleInput from '@/components/NumberOfPeopleInput.vue';
 
 export default {
   name: 'App',
-  components: {},
+  components: {
+    BillInput,
+    NumberOfPeopleInput,
+  },
   computed: {
     tipState() {
       return state;
     },
-    bill: {
-      get() {
-        return state.bill;
-      },
-      set(value) {
-        actions.updateBill(value);
-      }
-    },
     tipPercentage() {
       return state.tipPercentage;
-    },
-    numberOfPeople: {
-      get() {
-        return state.numberOfPeople;
-      },
-      set(value) {
-        actions.updateNumberOfPeople(value);
-      }
     },
     tipPerPerson() {
       return this.tipState.bill / this.tipState.
@@ -69,7 +56,7 @@ numberOfPeople * this.tipState.
 tipPercentage / 100;
     },
     totalPerPerson() {
-      return this.tipState.bill / this.numberOfPeople + this.tipPerPerson;
+      return this.tipState.bill / this.tipState.numberOfPeople + this.tipPerPerson;
     }
   }
 }
