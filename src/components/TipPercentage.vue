@@ -91,9 +91,9 @@ export default {
   background-color: var(--very-dark-cyan);
   color: var(--white);
   border-radius: 5px;
-  font-family: "Space Mono";
   width: 100%;
   font-size: 1em;
+  font-weight: bolder;
   text-align: center;
   transition: background-color ease-out 50ms, transform ease-out 200ms;
   cursor: pointer;

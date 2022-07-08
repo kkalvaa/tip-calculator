@@ -20,8 +20,8 @@ const actions = {
   },
   reset() {
     state.bill = 0;
-    state.tipPercentage = 0;
-    state.numberOfPeople = 0;
+    state.tipPercentage = 5;
+    state.numberOfPeople = 1;
   }
 }
 

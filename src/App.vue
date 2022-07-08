@@ -18,7 +18,7 @@
           <p>Total <span>/ person</span></p>
           <p>${{ totalPerPerson }}</p>
         </div>
-        <button type="reset">Reset</button>
+        <reset-button />
 
       </div>
     </section>
@@ -30,6 +30,7 @@ import { state } from '@/store.js';
 import BillInput from '@/components/BillInput.vue';
 import NumberOfPeopleInput from '@/components/NumberOfPeopleInput.vue';
 import TipPercentage from '@/components/TipPercentage.vue';
+import ResetButton from '@/components/ResetButton.vue';
 
 export default {
   name: 'App',
@@ -37,6 +38,8 @@ export default {
     BillInput,
     NumberOfPeopleInput,
     TipPercentage,
+    ResetButton,
+
   },
   computed: {
     tipState() {
@@ -114,15 +117,22 @@ ul {
   gap: 0.5em;
 }
 
-button {
+.c-button {
+  display: block;
   padding: 0.5em;
   background-color: var(--very-dark-cyan);
   color: var(--white);
   border-radius: 5px;
-  font-family: "Space Mono";
-  border: solid 1px var(--very-dark-cyan);
+  border: none;
   width: 100%;
   font-size: 1em;
+  text-align: center;
+  transition: background-color ease-out 50ms, transform ease-out 200ms;
+  cursor: pointer;
+
+  &:not(:disabled):hover {
+    transform: scale(1.05); transition: transform ease-out 200ms;
+  }
 }
 
 input {
@@ -153,9 +163,6 @@ input {
   color: var(--white);
   border-radius: 10px;
 
-  button {
-    background-color: var(--cyan-300);
-    color: var(--very-dark-cyan);
-  }
+  
 }
 </style>
