@@ -1,7 +1,14 @@
 <template>
-  <label for="numberOfPeople">
+  <label for="numberOfPeopleInput">
     Number of people
-    <input id="numberOfPeople" type="number" v-model.number="numberOfPeople">
+    <input
+      id="numberOfPeopleInput"
+      class="number-of-people-input"
+      type="number"
+      v-model.number="numberOfPeople"
+      min="1"
+      validate
+    >
   </label>
 </template>
 
@@ -22,3 +29,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.number-of-people-input {
+  background-image: url("../assets/icon-person.svg");
+}
+</style>

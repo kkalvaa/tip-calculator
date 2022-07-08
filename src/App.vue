@@ -46,9 +46,7 @@ export default {
       return state.tipPercentage;
     },
     tipPerPerson() {
-      return this.tipState.bill / this.tipState.
-numberOfPeople * this.tipState.
-tipPercentage / 100;
+      return this.tipState.bill / this.tipState.numberOfPeople * this.tipState.tipPercentage / 100;
     },
     totalPerPerson() {
       return this.tipState.bill / this.tipState.numberOfPeople + this.tipPerPerson;
@@ -131,10 +129,22 @@ input {
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
+  font-weight: bolder;
   border-color: transparent;
   background-color: var(--cyan-600);
   border-radius: 5px;
   text-align: right;
+  accent-color: var(--strong-cyan);
+  background-repeat: no-repeat;
+  background-position: 1em 50%;
+  background-size: 0.75em;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 }
 
 .div2 {
