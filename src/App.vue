@@ -11,12 +11,12 @@
       </div>
       <div class="div2">
         <div>
-          <p>Tip Amount <span>/ person</span></p>
-          <p>${{ tipPerPerson }}</p>
+          <p>Tip Amount <br><span>/ person</span></p>
+          <output-number>{{ tipPerPerson }}</output-number>
         </div>
         <div>
-          <p>Total <span>/ person</span></p>
-          <p>${{ totalPerPerson }}</p>
+          <p>Total <br><span>/ person</span></p>
+          <output-number>{{ totalPerPerson }}</output-number>
         </div>
         <reset-button />
 
@@ -31,6 +31,8 @@ import BillInput from '@/components/BillInput.vue';
 import NumberOfPeopleInput from '@/components/NumberOfPeopleInput.vue';
 import TipPercentage from '@/components/TipPercentage.vue';
 import ResetButton from '@/components/ResetButton.vue';
+import OutputNumber from './components/OutputNumber.vue';
+
 
 export default {
   name: 'App',
@@ -39,6 +41,7 @@ export default {
     NumberOfPeopleInput,
     TipPercentage,
     ResetButton,
+    OutputNumber,
 
   },
   computed: {
@@ -163,6 +166,17 @@ input {
   color: var(--white);
   border-radius: 10px;
 
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    justify-content: space-between;
+  }
+
+  span {
+    font-size: 0.75em;
+    color: var(--cyan-400);
+  }
   
 }
 </style>
