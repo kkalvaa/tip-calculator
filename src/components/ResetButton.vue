@@ -36,7 +36,7 @@ export default {
 
 .c-button {
   &[type=reset] {
-    background-color: var(--cyan-500);
+    background-color: var(--strong-cyan);
     color: var(--very-dark-cyan);
     text-transform: uppercase;
     font-weight: bolder;

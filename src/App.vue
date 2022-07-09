@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <section>
-      <div>
+      <div class="div1">
         <bill-input />
 
-        <p>Select tip %</p>
-        <tip-percentage />
+        <div>
+          <p>Select tip %</p>
+          <tip-percentage />
+        </div>
 
         <number-of-people-input />
       </div>
@@ -48,14 +50,14 @@ export default {
     tipState() {
       return state;
     },
-    tipPercentage() {
-      return state.tipPercentage;
+    perPerson() {
+      return Math.round( this.tipState.bill / this.tipState.numberOfPeople * 100 ) / 100;
     },
     tipPerPerson() {
-      return this.tipState.bill / this.tipState.numberOfPeople * this.tipState.tipPercentage / 100;
+      return Math.round( this.perPerson * this.tipState.tipPercentage ) / 100;
     },
     totalPerPerson() {
-      return this.tipState.bill / this.tipState.numberOfPeople + this.tipPerPerson;
+      return Math.round( (this.perPerson + this.tipPerPerson) * 100) / 100;
     }
   }
 }
@@ -81,6 +83,7 @@ url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;700;900&famil
 * {
   box-sizing: border-box;
   font-family: "Space Mono";
+  font-weight: bolder;
 }
 
 html,
@@ -157,6 +160,16 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+  }
+}
+
+.div1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  p {
+    margin: 0;
   }
 }
 
