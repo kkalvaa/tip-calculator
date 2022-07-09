@@ -36,8 +36,10 @@ export default {
 <style lang="scss">
 .c-button {
   &--input {
-    background-color: var(--cyan-600);
-    color: currentColor;
+    &#{&} {
+      background-color: var(--cyan-600);
+      color: currentColor;
+    }
   }
 }
 </style>
