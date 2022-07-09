@@ -7,7 +7,11 @@
         value="5"
         class="radio-input"
       >
-      <label for="radio5" class="radio-label">
+      <label
+        for="radio5"
+        class="c-button"
+        @click="setFalse()"
+      >
         5%
       </label>
     </li>
@@ -18,7 +22,11 @@
         value="10"
         class="radio-input"
       >
-      <label for="radio10" class="radio-label">
+      <label
+        for="radio10"
+        class="c-button"
+        @click="setFalse()"
+      >
         10%
       </label>
     </li>
@@ -29,7 +37,11 @@
         value="15"
         class="radio-input"
       >
-      <label for="radio15" class="radio-label">
+      <label
+        for="radio15"
+        class="c-button"
+        @click="setFalse()"
+      >
         15%
       </label>
     </li>
@@ -40,7 +52,11 @@
         value="25"
         class="radio-input"
       >
-      <label for="radio25" class="radio-label">
+      <label
+        for="radio25"
+        class="c-button"
+        @click="setFalse()"
+      >
         25%
       </label>
     </li>
@@ -51,22 +67,44 @@
         value="50"
         class="radio-input"
       >
-      <label for="radio50" class="radio-label">
+      <label
+        for="radio50"
+        class="c-button"
+        @click="setFalse()"
+      >
         50%
       </label>
     </li>
 
-
-    
-    <li><input></li>
+    <li>
+      <custom-input
+        v-if="isCustom"
+      />
+      <button
+        v-else
+        class="c-button c-button--custom"
+        @click="setTrue()"
+      >
+        Custom
+      </button>
+    </li>
   </ul>
 </template>
 
 <script>
 import { state, actions } from '@/store.js';
+import CustomInput from '@/components/CustomInput.vue';
 
 export default {
   name: 'TipPercentage',
+  components: {
+    CustomInput,
+  },
+  data() {
+    return {
+      isCustom: false,
+    }
+  },
   computed: {
     tipPercentage: {
       get() {
@@ -75,6 +113,14 @@ export default {
       set(value) {
         actions.updateTipPercentage(value);
       }
+    }
+  },
+  methods: {
+    setTrue() {
+      this.isCustom = true;
+    },
+    setFalse() {
+      this.isCustom = false;
     }
   }
 }
@@ -85,27 +131,21 @@ export default {
   display: none;
 }
 
-.radio-label {
-  display: block;
-  padding: 0.5em;
-  background-color: var(--very-dark-cyan);
-  color: var(--white);
-  border-radius: 5px;
-  width: 100%;
-  font-size: 1em;
-  font-weight: bolder;
-  text-align: center;
-  transition: background-color ease-out 50ms, transform ease-out 200ms;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-    transition: transform ease-out 200ms;
-  }
-
+.c-button {
   .radio-input:checked + & {
     background-color: var(--strong-cyan);
     transition: background-color ease-out 150ms 50ms;
+  }
+
+  &--custom {
+    background-color: var(--cyan-600);
+    color: var(--cyan-300);
+    transition: all ease-out 200ms;
+
+    &:hover {
+      background-color: var(--cyan-500);
+      color: var(--very-dark-cyan);
+    }
   }
 }
 
