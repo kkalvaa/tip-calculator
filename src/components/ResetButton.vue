@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { EventBus, } from '@/event-bus.js';
 import { state, actions } from '@/store.js';
 
 export default {
@@ -26,6 +27,9 @@ export default {
   methods: {
     reset() {
       actions.reset();
+      EventBus.$emit('reset', {
+        isCustom: false
+      });
     }
   }
 
@@ -44,6 +48,10 @@ export default {
     &:disabled {
       background-color: var(--cyan-300);
       cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background-color: var(--cyan-500);
     }
   }
 }

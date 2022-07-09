@@ -92,7 +92,9 @@
 </template>
 
 <script>
+import { EventBus, } from '@/event-bus.js';
 import { state, actions } from '@/store.js';
+
 import CustomInput from '@/components/CustomInput.vue';
 
 export default {
@@ -115,9 +117,15 @@ export default {
       }
     }
   },
+  created() {
+    EventBus.$on('reset', reset => {
+      this.isCustom = reset.isCustom;
+    })
+  },
   methods: {
     setTrue() {
       this.isCustom = true;
+      actions.updateTipPercentage('');
     },
     setFalse() {
       this.isCustom = false;
