@@ -114,14 +114,7 @@ section {
   padding: 1.5em;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.5em;
-}
+
 
 .c-button {
   display: block;
