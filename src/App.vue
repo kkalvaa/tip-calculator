@@ -12,10 +12,10 @@
         <number-of-people-input />
       </section>
       <section class="c-tip-calculator__output-section">
-        <section>
+        <div>
           <tip-amount />
           <total-amount />
-        </section>
+        </div>
 
         <reset-button class="test" />
       </section>
