@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .radio-input {
   display: none;
 }
@@ -146,13 +146,15 @@ export default {
   }
 
   &--custom {
-    background-color: var(--cyan-600);
-    color: var(--cyan-300);
-    transition: all ease-out 200ms;
-
-    &:hover {
-      background-color: var(--cyan-500);
-      color: var(--very-dark-cyan);
+    &#{&} {
+      background-color: var(--cyan-600);
+      color: var(--cyan-300);
+      transition: all ease-out 200ms;
+  
+      &:hover {
+        background-color: var(--cyan-500);
+        color: var(--very-dark-cyan);
+      }
     }
   }
 }
