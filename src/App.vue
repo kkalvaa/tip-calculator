@@ -15,11 +15,11 @@
         <section>
           <div class="c-output">
             <p class="c-output__title">Tip Amount <br><span class="c-output__subtitle">/ person</span></p>
-            <output-number>{{ tipPerPerson }}</output-number>
+            <output-number>{{ tipState.tipPerPerson }}</output-number>
           </div>
           <div class="c-output">
             <p class="c-output__title">Total <br><span class="c-output__subtitle">/ person</span></p>
-            <output-number>{{ totalPerPerson }}</output-number>
+            <output-number>{{ tipState.totalPerPerson }}</output-number>
           </div>
         </section>
 
@@ -52,15 +52,6 @@ export default {
     tipState() {
       return state;
     },
-    perPerson() {
-      return Math.round( this.tipState.bill / this.tipState.numberOfPeople * 100 ) / 100;
-    },
-    tipPerPerson() {
-      return Math.round( this.perPerson * this.tipState.tipPercentage ) / 100;
-    },
-    totalPerPerson() {
-      return Math.round( (this.perPerson + this.tipPerPerson) * 100) / 100;
-    }
   }
 }
 </script>
