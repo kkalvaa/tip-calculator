@@ -109,7 +109,6 @@ body {
 
   &__input-section {
     grid-area: input;
-
     display: flex;
     flex-direction: column;
     gap: 1.5em;
@@ -117,12 +116,10 @@ body {
 
   &__output-section {
     grid-area: output;
-
     background-color: var(--very-dark-cyan);
     padding: 2em;
     color: var(--white);
     border-radius: 10px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
