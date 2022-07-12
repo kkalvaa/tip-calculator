@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <section>
-      <div class="div1">
+    <section class="c-tip-calculator">
+      <section class="c-tip-calculator__input-section">
         <bill-input />
 
         <div>
-          <p>Select tip %</p>
+          <p class="u-flush">Select tip %</p>
           <tip-percentage />
         </div>
 
         <number-of-people-input />
-      </div>
-      <div class="div2">
-        <div>
-          <p>Tip Amount <br><span>/ person</span></p>
-          <output-number>{{ tipPerPerson }}</output-number>
-        </div>
-        <div>
-          <p>Total <br><span>/ person</span></p>
-          <output-number>{{ totalPerPerson }}</output-number>
-        </div>
-        <reset-button />
+      </section>
+      <section class="c-tip-calculator__output-section">
+        <section>
+          <div class="c-output">
+            <p class="c-output__title">Tip Amount <br><span class="c-output__subtitle">/ person</span></p>
+            <output-number>{{ tipPerPerson }}</output-number>
+          </div>
+          <div class="c-output">
+            <p class="c-output__title">Total <br><span class="c-output__subtitle">/ person</span></p>
+            <output-number>{{ totalPerPerson }}</output-number>
+          </div>
+        </section>
 
-      </div>
+        <reset-button class="test" />
+      </section>
     </section>
   </div>
 </template>
@@ -104,17 +106,60 @@ body {
   align-items: center;
 }
 
-section {
+.c-tip-calculator {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'input' 'output';
   gap: 1em;
-  width: 760px;
+  max-width: 760px;
   background-color: var(--white);
   border-radius: 15px;
   padding: 1.5em;
+
+  @media (min-width: 450px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'input output';
+  }
+
+  &__input-section {
+    grid-area: input;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  &__output-section {
+    grid-area: output;
+
+    background-color: var(--very-dark-cyan);
+    padding: 2em;
+    color: var(--white);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+  }
 }
 
+.c-output {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  justify-content: space-between;
+  margin-bottom: 1em;
 
+  &__title {
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 0.75em;
+    color: var(--cyan-400);
+  }
+}
 
 .c-button {
   display: block;
@@ -148,6 +193,12 @@ input {
   background-position: 1em 50%;
   background-size: 0.75em;
 
+  &:focus,
+  &:active {
+    //border-color: var(--strong-cyan);
+    outline-color: var(--strong-cyan);
+  }
+
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -156,33 +207,8 @@ input {
   }
 }
 
-.div1 {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
-
-  p {
-    margin: 0;
-  }
+.u-flush {
+  margin: 0;
 }
 
-.div2 {
-  background-color: var(--very-dark-cyan);
-  padding: 2em;
-  color: var(--white);
-  border-radius: 10px;
-
-  > div {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    justify-content: space-between;
-  }
-
-  span {
-    font-size: 0.75em;
-    color: var(--cyan-400);
-  }
-  
-}
 </style>

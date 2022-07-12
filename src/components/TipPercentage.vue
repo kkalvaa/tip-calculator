@@ -1,5 +1,5 @@
 <template>
-  <ul class="c-tips">
+  <ul class="c-tip-list">
     <li>
       <input type="radio"
         id="radio5"
@@ -135,12 +135,12 @@ export default {
 </script>
 
 <style lang="scss">
-.c-tips {
+.c-tip-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   gap: 0.5em;
 }
 
