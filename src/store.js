@@ -40,6 +40,9 @@ const actions = {
     state.bill = 0;
     state.tipPercentage = 5;
     state.numberOfPeople = 1;
+    state.perPerson = 0;
+    state.tipPerPerson = 0;
+    state.totalPerPerson = 0;
   }
 }
 
