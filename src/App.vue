@@ -13,14 +13,8 @@
       </section>
       <section class="c-tip-calculator__output-section">
         <section>
-          <div class="c-output">
-            <p class="c-output__title">Tip Amount <br><span class="c-output__subtitle">/ person</span></p>
-            <output-number>{{ tipState.tipPerPerson }}</output-number>
-          </div>
-          <div class="c-output">
-            <p class="c-output__title">Total <br><span class="c-output__subtitle">/ person</span></p>
-            <output-number>{{ tipState.totalPerPerson }}</output-number>
-          </div>
+          <tip-amount />
+          <total-amount />
         </section>
 
         <reset-button class="test" />
@@ -35,7 +29,8 @@ import BillInput from '@/components/BillInput.vue';
 import NumberOfPeopleInput from '@/components/NumberOfPeopleInput.vue';
 import TipPercentage from '@/components/TipPercentage.vue';
 import ResetButton from '@/components/ResetButton.vue';
-import OutputNumber from './components/OutputNumber.vue';
+import TipAmount from '@/components/TipAmount.vue';
+import TotalAmount from '@/components/TotalAmount.vue';
 
 
 export default {
@@ -45,8 +40,8 @@ export default {
     NumberOfPeopleInput,
     TipPercentage,
     ResetButton,
-    OutputNumber,
-
+    TipAmount,
+    TotalAmount,
   },
   computed: {
     tipState() {
@@ -135,23 +130,6 @@ body {
   }
 }
 
-.c-output {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  justify-content: space-between;
-  margin-bottom: 1em;
-
-  &__title {
-    margin: 0;
-  }
-
-  &__subtitle {
-    font-size: 0.75em;
-    color: var(--cyan-400);
-  }
-}
-
 .c-button {
   display: block;
   padding: 0.5em;
@@ -186,7 +164,6 @@ input {
 
   &:focus,
   &:active {
-    //border-color: var(--strong-cyan);
     outline-color: var(--strong-cyan);
   }
 
